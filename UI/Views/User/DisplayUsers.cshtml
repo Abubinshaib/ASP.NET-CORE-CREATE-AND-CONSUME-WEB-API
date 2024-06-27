@@ -1,0 +1,37 @@
+﻿@model List<UI.Models.UserEntity>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Lands</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+
+
+    <div class="row">
+        @foreach (var user in Model)
+        {
+            <li>
+                <div>
+                    <h5>@user.Name</h5>
+                    <p>Phone Number: @user.PhoneNumber</p>
+                    <p>Email: @user.Email</p>
+                    <p>Gender: @user.Gender</p>
+                    <!-- Edit and Delete links -->
+                    <a href="@Url.Action("Edit", "User", new { id = user.Id })">Edit</a>
+                    <a href="@Url.Action("Delete", "User", new { id = user.Id })">Delete</a>
+                </div>
+            </li>
+        }
+
+    </div>
+</body>
+</html>
+

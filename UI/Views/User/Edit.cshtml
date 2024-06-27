@@ -1,0 +1,41 @@
+﻿@model UI.Models.UserEntity;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+</head>
+<body>
+    <h2>User Registration</h2>
+    @using (Html.BeginForm("Update", "User", FormMethod.Post))
+    {
+        <input type="hidden" id="uid" name="uid" value="@Model.Id" required>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="@Model.Name" required>
+        </div>
+        <div>
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" value="@Model.PhoneNumber" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="@Model.Email" required>
+        </div>
+        <div>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" value="@Model.Gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <button type="submit">Register</button>
+    }
+</body>
+</html>
